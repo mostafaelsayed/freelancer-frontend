@@ -1,0 +1,9 @@
+<h2>My Projects</h2>
+<ul class="projects">
+  <li *ngFor="let project of projects" (click)="selectProject(project)">
+    <span class="badge">{{project.name}}</span> {{project.description}}
+  </li>
+</ul>
+
+<!-- external ProjectComponent will bind to selected project like this. -->
+<app-project-detail [project]="selectedProject"></app-project-detail>
