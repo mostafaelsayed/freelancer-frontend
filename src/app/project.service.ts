@@ -24,8 +24,20 @@ export class ProjectService {
     return of(projects);
   }
 
-  addProject(projectData) {
+  getProject(name): Observable<Project> {
+    // mock projects
+    let projects: Project[] = [
+      {
+        "name": "blog",
+        "description": "writing a blog"
+      },
+      {
+        "name": "blog1",
+        "description": "writing a blog1"
+      }
+    ];
 
+    return of(projects.find(project => name === project.name));
   }
   constructor() { }
 }
