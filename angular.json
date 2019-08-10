@@ -19,6 +19,11 @@
             "polyfills": "src/polyfills.ts",
             "tsConfig": "src/tsconfig.app.json",
             "assets": [
+              {
+                "glob": "Staticfile",
+                "input": "",
+                "output": "/"
+              },
               "src/favicon.ico",
               "src/assets"
             ],
