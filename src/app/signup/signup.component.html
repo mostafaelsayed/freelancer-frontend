@@ -1,0 +1,17 @@
+<form id="signup-form">
+    <mat-form-field class="full-width-input">
+        <input matInput [(ngModel)]="email" type="email" placeholder="Email" name="email"/>
+    </mat-form-field>
+
+    <mat-form-field class="full-width-input">
+        <input matInput [(ngModel)]="password" type="password" placeholder="Password" name="password" />
+    </mat-form-field>
+
+    <mat-form-field class="full-width-input">
+        <input matInput [(ngModel)]="confirmPassword" type="password" placeholder="Confirm Password" name="confirmPassword" />
+    </mat-form-field>
+
+    <br /><br />
+
+    <button (click)="register()" mat-raised-button color="primary">Register</button>
+</form>
