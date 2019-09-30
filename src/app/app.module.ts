@@ -7,7 +7,7 @@ import { AppRoutingModule } from './/app-routing.module';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { UserComponent } from './user/user.component';
-import { ProjectComponent } from './project/project.component';
+import { ProjectsComponent } from './projects/projects.component';
 import { ProjectDetailComponent } from './project-detail/project-detail.component';
 import { SignupComponent } from './signup/signup.component';
 import { SharedModule } from '../app/shared/shared.module';
@@ -17,7 +17,7 @@ import { SharedModule } from '../app/shared/shared.module';
     AppComponent,
     LoginComponent,
     UserComponent,
-    ProjectComponent,
+    ProjectsComponent,
     ProjectDetailComponent,
     SignupComponent
   ],

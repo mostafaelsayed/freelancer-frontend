@@ -3,11 +3,11 @@ import { Project } from '../project';
 import { ProjectService } from '../project.service';
 
 @Component({
-  selector: 'app-project',
-  templateUrl: './project.component.html',
-  styleUrls: ['./project.component.css']
+  selector: 'app-projects',
+  templateUrl: './projects.component.html',
+  styleUrls: ['./projects.component.css']
 })
-export class ProjectComponent implements OnInit {
+export class ProjectsComponent implements OnInit {
 
   // projects that current user is working on (array of projects)
   projects: Project[];
