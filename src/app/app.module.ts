@@ -10,7 +10,7 @@ import { UserComponent } from './components/user/user.component';
 import { ProjectsComponent } from './components/projects/projects.component';
 import { ProjectDetailComponent } from './components/project-detail/project-detail.component';
 import { SignupComponent } from './components/signup/signup.component';
-import { SharedModule } from '../app/shared/shared.module';
+import { SharedModule } from '../app/modules/shared/shared.module';
 import { httpInterceptorsProvider } from './interceptors/index';
 
 @NgModule({

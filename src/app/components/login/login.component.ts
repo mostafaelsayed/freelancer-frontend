@@ -3,7 +3,7 @@ import { User } from '../../models/user';
 import { environment } from '../../../environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { Location } from '@angular/common';
-import { OverlayService } from '../../shared/services/overlay.service';
+import { OverlayService } from '../../modules/shared/services/overlay.service';
 
 @Component({
   selector: 'app-login',
