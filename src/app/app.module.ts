@@ -11,6 +11,7 @@ import { ProjectsComponent } from './projects/projects.component';
 import { ProjectDetailComponent } from './project-detail/project-detail.component';
 import { SignupComponent } from './signup/signup.component';
 import { SharedModule } from '../app/shared/shared.module';
+import { httpInterceptorsProvider } from './interceptors/index';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,9 @@ import { SharedModule } from '../app/shared/shared.module';
     BrowserAnimationsModule,
     SharedModule
   ],
-  providers: [],
+  providers: [
+    httpInterceptorsProvider
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

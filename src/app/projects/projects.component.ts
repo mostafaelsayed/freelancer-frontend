@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Project } from '../project';
-import { ProjectService } from '../project.service';
+import { ProjectService } from '../services/project.service';
 
 @Component({
   selector: 'app-projects',
@@ -10,11 +10,20 @@ import { ProjectService } from '../project.service';
 export class ProjectsComponent implements OnInit {
 
   // projects that current user is working on (array of projects)
-  projects: Project[];
+  public projects: Project[];
 
-  getProjects(): void {
+  public loading: boolean = true;
+
+  public getProjects(): void {
     // assign this.projects asynchronously
-    this.projectService.getProjects().subscribe(projects => this.projects = projects);
+    this.projectService.getProjects().subscribe(projects => {
+      console.log(projects);
+      this.loading = false;
+      setTimeout(() => {
+        this.projects = projects.docs;
+      }, 100);
+      
+    });
   }
 
   // Add a private projectService parameter of type ProjectService to the constructor.

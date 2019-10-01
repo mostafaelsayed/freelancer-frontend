@@ -19,7 +19,7 @@ export class SignupComponent implements OnInit {
   }
 
   public register(): void {
-    this.http.post(this.apiUrl + '/api/signup', { email: this.email, password: this.password, confirmPassword: this.confirmPassword }).subscribe((response) => {
+    this.http.post(this.apiUrl + '/signup', { email: this.email, password: this.password, confirmPassword: this.confirmPassword }).subscribe((response) => {
 
     });
   }

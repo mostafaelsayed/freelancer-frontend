@@ -2,7 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Project } from '../project';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
-import { ProjectService } from '../project.service';
+import { ProjectService } from '../services/project.service';
 
 @Component({
   selector: 'app-project-detail',
