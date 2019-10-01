@@ -5,7 +5,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatInputModule } from '@angular/material/input';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
-import { OverlayLoaderComponent } from './overlay-loader/overlay-loader.component';
+import { OverlayLoaderComponent } from './components/overlay-loader/overlay-loader.component';
 import { OverlayModule } from '@angular/cdk/overlay';
 import { OverlayService } from './services/overlay.service';
 
