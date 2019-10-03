@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
-import { Project } from '../models/project';
+import { Project } from '../../models/project';
 import { Observable, of } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
-import { environment } from '../../environments/environment';
+import { environment } from '../../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -16,8 +16,7 @@ export class ProjectService {
   }
 
   getProject(name): Observable<any> {
-    //return this.http.get('/api/getProjects');
-    return;
+    return this.http.get(this.apiUrl + '/api/getProject?projectName=' + name);
   }
   constructor(private http: HttpClient) { }
 }

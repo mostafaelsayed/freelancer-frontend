@@ -7,7 +7,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { OverlayLoaderComponent } from './components/overlay-loader/overlay-loader.component';
 import { OverlayModule } from '@angular/cdk/overlay';
-import { OverlayService } from './services/overlay.service';
+import { OverlayService } from './services/overlay/overlay.service';
 
 
 @NgModule({

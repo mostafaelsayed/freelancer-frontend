@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Project } from '../../models/project';
-import { ProjectService } from '../../services/project.service';
+import { ProjectService } from '../../services/project/project.service';
 
 @Component({
   selector: 'app-projects',
@@ -20,7 +20,7 @@ export class ProjectsComponent implements OnInit {
       console.log(projects);
       this.loading = false;
       setTimeout(() => {
-        this.projects = projects.docs;
+        this.projects = projects;
       }, 100);
       
     });
