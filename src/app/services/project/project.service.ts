@@ -14,8 +14,8 @@ export class ProjectService {
     return this.http.get(this.apiUrl + '/api/getProjects');
   }
 
-  getProject(name: string): Observable<any> {
-    return this.http.get(this.apiUrl + '/api/getProject?projectName=' + name);
+  getProjectById(id: number): Observable<any> {
+    return this.http.get(this.apiUrl + '/api/getProjectById?projectId=' + id);
   }
 
   addProject(projectToAdd): Observable<any> {

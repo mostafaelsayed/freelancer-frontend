@@ -9,7 +9,7 @@
 
 <ul *ngIf="!loading" class="projects">
   <li *ngFor="let project of projects">
-    <a routerLink="/project/{{project.name}}">
+    <a routerLink="/project/{{project.id}}">
       <span class="badge">{{project.name}}</span> {{project.description}}
     </a>
   </li>
