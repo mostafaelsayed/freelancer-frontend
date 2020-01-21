@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Project } from '../../models/project';
-import { Observable, of } from 'rxjs';
+import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../../environments/environment';
 
@@ -15,8 +14,12 @@ export class ProjectService {
     return this.http.get(this.apiUrl + '/api/getProjects');
   }
 
-  getProject(name): Observable<any> {
+  getProject(name: string): Observable<any> {
     return this.http.get(this.apiUrl + '/api/getProject?projectName=' + name);
+  }
+
+  addProject(projectToAdd): Observable<any> {
+    return this.http.post(this.apiUrl + '/api/addProject', projectToAdd);
   }
   constructor(private http: HttpClient) { }
 }

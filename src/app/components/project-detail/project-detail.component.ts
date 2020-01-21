@@ -1,7 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Project } from '../../models/project';
 import { ActivatedRoute } from '@angular/router';
-import { Location } from '@angular/common';
 import { ProjectService } from '../../services/project/project.service';
 
 @Component({
@@ -33,7 +32,7 @@ export class ProjectDetailComponent implements OnInit {
 
   // The ActivatedRoute holds information about the route to this instance of the ProjectDetailComponent.
   // This component is interested in the route's bag of parameters extracted from the URL
-  constructor(private route: ActivatedRoute, private location: Location, private projectService: ProjectService) { }
+  constructor(private route: ActivatedRoute, private projectService: ProjectService) { }
 
   ngOnInit() {
     this.getProject();

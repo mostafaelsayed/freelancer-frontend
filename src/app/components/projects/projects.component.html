@@ -2,6 +2,9 @@
 
 <h2>My Projects</h2>
 
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+
 <mat-spinner *ngIf="loading"></mat-spinner>
 
 <ul *ngIf="!loading" class="projects">
@@ -10,6 +13,8 @@
       <span class="badge">{{project.name}}</span> {{project.description}}
     </a>
   </li>
+
+  <button (click)="goToAddProjectPage()" style="cursor: pointer;" title="Add Project"><i class="material-icons">add</i></button>
 </ul>
 
 <!-- external ProjectComponent will bind to selected project like this. -->
