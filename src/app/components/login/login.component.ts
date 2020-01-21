@@ -23,7 +23,7 @@ export class LoginComponent implements OnInit {
 
   public login(): void {
     this.overlayService.addOverlayComponent();
-    this.http.post<any>(`${this.apiUrl}/login`, this.user).subscribe((res) => {
+    this.http.post<any>(`${this.apiUrl}/api/login`, this.user).subscribe((res) => {
       console.log(res);
       localStorage.setItem('token', res.token);
       this.location.back();

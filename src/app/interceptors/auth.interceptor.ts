@@ -23,6 +23,7 @@ export class AuthInterceptor implements HttpInterceptor {
             });
         }
         else {
+            localStorage.removeItem('token');
             this.router.navigate(['/login']);
         }
 

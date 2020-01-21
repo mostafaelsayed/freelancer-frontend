@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
 export class ProjectsComponent implements OnInit {
 
   // projects that current user is working on (array of projects)
-  public projects: Project[];
+  public projects: Project[] = [];
 
   public loading: boolean = true;
 
