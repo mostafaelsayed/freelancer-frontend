@@ -29,7 +29,13 @@ export class AuthInterceptor implements HttpInterceptor {
 
         return next.handle(req).pipe(catchError(err => {
             console.log('error catched : ', err);
-            this.router.navigate(['/login']);
+
+            // if not authenticated response error
+            if (err.status === 403) {
+                localStorage.removeItem('token');
+                this.router.navigate(['/login']);
+            }
+
             return throwError(err);
         }));
     }
