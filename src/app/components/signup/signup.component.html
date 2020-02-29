@@ -11,6 +11,14 @@
         <input matInput [(ngModel)]="confirmPassword" type="password" placeholder="Confirm Password" name="confirmPassword" />
     </mat-form-field>
 
+    <!-- <mat-form-field class="full-width-input"> -->
+        <mat-checkbox [(ngModel)]="clientChecked" (change)="checkboxToggle($event)" name="client">Client</mat-checkbox>
+    <!-- </mat-form-field> -->
+
+    <!-- <mat-form-field class="full-width-input"> -->
+        <mat-checkbox [(ngModel)]="freelancerChecked" (change)="checkboxToggle($event)" name="freelancer">Freelancer</mat-checkbox>
+    <!-- </mat-form-field> -->
+    
     <br /><br />
 
     <button (click)="register()" mat-raised-button color="primary">Register</button>
