@@ -7,11 +7,18 @@
 
 <mat-spinner *ngIf="loading"></mat-spinner>
 
-<ul *ngIf="!loading && projects.length > 0" class="projects">
-  <li *ngFor="let project of projects">
-    <a routerLink="/project/{{project.id}}">
-      <span class="badge">{{project.name}}</span> {{project.description}}
-    </a>
+<ul style="justify-content: left;display: flex; flex-direction: column; align-content: space-around;" *ngIf="!loading && projects.length > 0">
+  <li style="flex: 1;" *ngFor="let project of projects">
+
+    <!-- <div style="display: flex;"> -->
+      <a routerLink="/project/{{project.id}}">
+        <span class="badge">{{project.name}}</span>
+      </a>
+
+      <span><button mat-raised-button color="danger" (click)="deleteProject(project)">Delete</button></span>
+
+    <!-- </div> -->
+
   </li>
 </ul>
 

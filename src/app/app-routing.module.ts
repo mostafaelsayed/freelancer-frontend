@@ -4,7 +4,7 @@ import { LoginComponent } from './components/login/login.component';
 import { ProjectsComponent } from './components/projects/projects.component';
 import { ProjectDetailComponent } from './components/project-detail/project-detail.component';
 import { SignupComponent } from './components/signup/signup.component';
-import { ProjectAddComponent } from './project-add/project-add.component';
+import { ProjectAddComponent } from './components/project-add/project-add.component';
 
 const routes: Routes = [
   {path: 'login', component: LoginComponent},

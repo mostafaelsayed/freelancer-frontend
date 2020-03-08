@@ -1,12 +1,27 @@
 <!-- selected project -->
 <mat-spinner *ngIf="loading"></mat-spinner>
 
-<div *ngIf="project && project.name != ''">
+<div *ngIf="project" style="margin-left: 1.5em;">
   <h2>{{project.name | uppercase}} Details</h2>
-  <div><span>name: </span>{{project.name}}</div>
+
+  <br />
+
   <div>
-    <label>description:
-      <input [(ngModel)]="project.description" placeholder="description"/>
-    </label>
+    <label for="name" style="font-weight: bold;">name: </label>
   </div>
+  <div>
+    <input id="name" [(ngModel)]="project.name" placeholder="project name" />
+  </div>
+
+  <br /><br />
+
+  <div>
+    <label for="description" style="font-weight: bold;">description: </label>
+  </div>
+  <div>
+    <textarea rows="10" cols="50" id="description" [(ngModel)]="project.description" placeholder="description"></textarea>
+  </div>
+
+  <button (click)="editProject()" mat-raised-button color="primary">Update Project</button>
+
 </div>

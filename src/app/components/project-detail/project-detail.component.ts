@@ -30,6 +30,12 @@ export class ProjectDetailComponent implements OnInit {
     });
   }
 
+  public editProject() {
+    this.projectService.editProject(this.project).subscribe(project => {
+      
+    });
+  }
+
   // The ActivatedRoute holds information about the route to this instance of the ProjectDetailComponent.
   // This component is interested in the route's bag of parameters extracted from the URL
   constructor(private route: ActivatedRoute, private projectService: ProjectService) { }

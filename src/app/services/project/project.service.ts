@@ -21,5 +21,14 @@ export class ProjectService {
   addProject(projectToAdd): Observable<any> {
     return this.http.post(this.apiUrl + '/api/addProject', projectToAdd);
   }
+
+  editProject(projectToEdit): Observable<any> {
+    return this.http.post(this.apiUrl + '/api/editProject', projectToEdit);
+  }
+
+  deleteProject(projectToDelete): Observable<any> {
+    return this.http.post(this.apiUrl + '/api/deleteProject', projectToDelete);
+  }
+
   constructor(private http: HttpClient) { }
 }

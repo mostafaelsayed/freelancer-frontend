@@ -13,7 +13,7 @@ import { SignupComponent } from './components/signup/signup.component';
 import { SharedModule } from '../app/modules/shared/shared.module';
 import { httpInterceptorsProvider } from './interceptors/index';
 import { MatIconModule } from '@angular/material/icon';
-import { ProjectAddComponent } from './project-add/project-add.component';
+import { ProjectAddComponent } from './components/project-add/project-add.component';
 
 @NgModule({
   declarations: [
