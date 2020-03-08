@@ -1,28 +1,35 @@
 
-
-<h2>My Projects</h2>
-
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
-      rel="stylesheet">
+rel="stylesheet">
 
-<mat-spinner *ngIf="loading"></mat-spinner>
+<div style="margin-left: 1.5em;">
 
-<ul style="justify-content: left;display: flex; flex-direction: column; align-content: space-around;" *ngIf="!loading && projects.length > 0">
-  <li style="flex: 1;" *ngFor="let project of projects">
+  <h2>My Projects</h2>
 
-    <!-- <div style="display: flex;"> -->
-      <a routerLink="/project/{{project.id}}">
-        <span class="badge">{{project.name}}</span>
-      </a>
+  <br />
 
-      <span><button mat-raised-button color="danger" (click)="deleteProject(project)">Delete</button></span>
+  <mat-spinner *ngIf="loading"></mat-spinner>
 
-    <!-- </div> -->
+  <ul style="padding-left: 1.3em;" *ngIf="!loading && projects.length > 0">
+    <li *ngFor="let project of projects">
 
-  </li>
-</ul>
+      <div style="column-count: 2;column-gap: 5em;width: 10%;">
+        <div>
+          <a style="vertical-align: middle;" routerLink="/project/{{project.id}}">
+            <span style="font-size: medium;">{{project.name}}</span>
+          </a>
+        </div>
 
-<button (click)="goToAddProjectPage()" style="cursor: pointer;" title="Add Project"><i class="material-icons">add</i></button>
+        <div><button mat-raised-button color="warn" (click)="deleteProject(project)">Delete</button></div>        
 
-<!-- external ProjectComponent will bind to selected project like this. -->
-<!-- <app-project-detail [project]="selectedProject"></app-project-detail> -->
+      </div>
+
+      <br />
+
+    </li>
+  </ul>
+
+  <button (click)="goToAddProjectPage()" style="cursor: pointer;" title="Add Project"><i class="material-icons">add</i></button>
+</div>
+  <!-- external ProjectComponent will bind to selected project like this. -->
+  <!-- <app-project-detail [project]="selectedProject"></app-project-detail> -->
