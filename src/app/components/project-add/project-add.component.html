@@ -1,6 +1,16 @@
-<form>
-    <input type="text" [(ngModel)]="projectName" name="projectName" />
-    <input type="text" [(ngModel)]="projectDescription" name="projectName" />
+<form style="margin-left: 1.5em;">
+    <label for="name" style="font-weight: bold;">Project Name</label>
+    <div>
+        <input id="name" type="text" [(ngModel)]="projectName" name="projectName" />
+    </div>
+
+    <br /><br />
+
+    <label for="projectDescription" style="font-weight: bold;">Project Description</label>
+
+    <div>
+        <textarea rows="10" cols="50" id="projectDescription" type="text" [(ngModel)]="projectDescription" name="projectName"></textarea>
+    </div>
 
     <button type="button" (click)="addProject()">Save</button>
 </form>
