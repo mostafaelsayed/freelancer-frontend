@@ -16,9 +16,10 @@ export class ProjectAddComponent implements OnInit {
 
   protected projectName: string = '';
   protected projectDescription: string = '';
+  protected projectId: number = null;
 
   protected addProject() {
-    const projectToAdd = new Project(this.projectName, this.projectDescription);
+    const projectToAdd = new Project(this.projectName, this.projectDescription, this.projectId);
     this.projectService.addProject(projectToAdd).subscribe((success) => {
       console.log('success add project : ', success);
     });
