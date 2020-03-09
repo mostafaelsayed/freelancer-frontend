@@ -13,9 +13,9 @@ rel="stylesheet">
   <ul style="padding-left: 1.3em;" *ngIf="!loading && projects.length > 0">
     <li *ngFor="let project of projects">
 
-      <div style="column-count: 2;column-gap: 5em;width: 10%;">
+      <div style="display: grid;grid-template-columns: 12% 5%;">
         <div>
-          <a style="vertical-align: middle;" routerLink="/project/{{project.id}}">
+          <a routerLink="/project/{{project.id}}">
             <span style="font-size: medium;">{{project.name}}</span>
           </a>
         </div>
