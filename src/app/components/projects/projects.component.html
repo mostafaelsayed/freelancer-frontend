@@ -14,7 +14,7 @@ rel="stylesheet">
     <li *ngFor="let project of projects">
 
       <div style="display: grid;grid-template-columns: 12% 5%;">
-        <div>
+        <div style="word-break: break-all;">
           <a routerLink="/project/{{project.id}}">
             <span style="font-size: medium;">{{project.name}}</span>
           </a>
