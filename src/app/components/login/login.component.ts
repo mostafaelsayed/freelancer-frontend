@@ -48,13 +48,14 @@ export class LoginComponent implements OnInit {
         // pop up message to let user choose
         this.multiRole = true;
         this.loginDisabled = true;
-        this.overlayService.removeOverlayComponent();
       }
       
       // if not then login is done.
       else {
         this.location.back();
       }
+
+      this.overlayService.removeOverlayComponent();
     });
   }
 
