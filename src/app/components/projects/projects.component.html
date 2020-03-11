@@ -29,7 +29,7 @@ rel="stylesheet">
     </li>
   </ul>
 
-  <button (click)="goToAddProjectPage()" style="cursor: pointer;" title="Add Project"><i class="material-icons">add</i></button>
+  <button *ngIf="user != null && user.role.includes('client')" (click)="goToAddProjectPage()" style="cursor: pointer;" title="Add Project"><i class="material-icons">add</i></button>
 </div>
   <!-- external ProjectComponent will bind to selected project like this. -->
   <!-- <app-project-detail [project]="selectedProject"></app-project-detail> -->

@@ -4,6 +4,8 @@ import { environment } from '../../../environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { Location } from '@angular/common';
 import { OverlayService } from '../../modules/shared/services/overlay/overlay.service';
+import { UserService } from '../../services/user/user.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -19,19 +21,64 @@ export class LoginComponent implements OnInit {
     password: ''
   };
 
+  public multiRole = false;
+  public loginDisabled = false;
   public apiUrl = environment.apiUrl;
+  public localStorageUser;
+
+  public roles = ['freelancer', 'client'];
+
+  public choosenRole: string = '';
 
   public login(): void {
     this.overlayService.addOverlayComponent();
     this.http.post<any>(`${this.apiUrl}/api/login`, this.user).subscribe((res) => {
       console.log(res);
+      // set token in local storage.
       localStorage.setItem('token', res.token);
-      this.location.back();
-      this.overlayService.removeOverlayComponent();
+
+      // hold the user variable for now.
+      this.localStorageUser = res.user;
+
+      // set user info in local storage.
+      localStorage.setItem('user', JSON.stringify(res.user));
+
+      // if we need to specify role
+      if (res.message == 'specify role') {
+        // pop up message to let user choose
+        this.multiRole = true;
+        this.loginDisabled = true;
+        this.overlayService.removeOverlayComponent();
+      }
+      
+      // if not then login is done.
+      else {
+        this.location.back();
+      }
     });
   }
 
-  constructor(private http: HttpClient, private location: Location, private overlayService: OverlayService, public viewContainerRef: ViewContainerRef) {
+  public changeRole(e) {
+    console.log(e);
+    // change role of user variable
+    this.localStorageUser.role = e.value;
+    // change role in backend locals object of response
+    this.userService.specifyRoleWhenLogin(e.value).subscribe( res => {
+      if (res.message == 'done choose role') {
+        console.log('done chossing role!');
+        localStorage.setItem( 'user', JSON.stringify(this.localStorageUser) );
+        this.router.navigate(['/projects']);
+      }
+      // if error then reset everything
+      else {
+        localStorage.removeItem('user');
+        localStorage.removeItem('token');
+      }
+    });
+  }
+
+  constructor(private router: Router, private userService: UserService, private http: HttpClient, private location: Location,
+    private overlayService: OverlayService, public viewContainerRef: ViewContainerRef) {
     overlayService.viewContainerRef = viewContainerRef;
   }
 

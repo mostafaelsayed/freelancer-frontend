@@ -15,6 +15,8 @@ export class ProjectsComponent implements OnInit {
 
   public loading: boolean = true;
 
+  public user = JSON.parse(localStorage.getItem('user'));
+  
   public getProjects(): void {
     // assign this.projects asynchronously
     this.projectService.getProjects().subscribe(projects => {

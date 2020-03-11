@@ -8,12 +8,13 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { OverlayLoaderComponent } from './components/overlay-loader/overlay-loader.component';
 import { OverlayModule } from '@angular/cdk/overlay';
 import { OverlayService } from './services/overlay/overlay.service';
+import { MatRadioModule } from '@angular/material/radio';
 
 
 @NgModule({
   declarations: [OverlayLoaderComponent],
-  imports: [MatButtonModule, MatCheckboxModule, CommonModule, MatInputModule, MatToolbarModule, MatProgressSpinnerModule, OverlayModule],
-  exports: [MatButtonModule, MatCheckboxModule, MatInputModule, MatToolbarModule, MatProgressSpinnerModule, OverlayModule, OverlayLoaderComponent],
+  imports: [MatRadioModule, MatButtonModule, MatCheckboxModule, CommonModule, MatInputModule, MatToolbarModule, MatProgressSpinnerModule, OverlayModule],
+  exports: [MatRadioModule, MatButtonModule, MatCheckboxModule, MatInputModule, MatToolbarModule, MatProgressSpinnerModule, OverlayModule, OverlayLoaderComponent],
   providers: [OverlayService],
   entryComponents: [OverlayLoaderComponent]
 })
