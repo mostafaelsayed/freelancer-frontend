@@ -68,6 +68,7 @@ export class LoginComponent implements OnInit {
       if (res.message == 'done choose role') {
         console.log('done chossing role!');
         localStorage.setItem( 'user', JSON.stringify(this.localStorageUser) );
+        localStorage.setItem('token', res.token);
         this.router.navigate(['/projects']);
       }
       // if error then reset everything
