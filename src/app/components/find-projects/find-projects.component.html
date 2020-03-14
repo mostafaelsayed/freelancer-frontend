@@ -1,0 +1,29 @@
+<div style="margin-left: 1.5em;">
+
+    <!-- <h2>My Projects</h2> -->
+  
+    <br />
+  
+    <mat-spinner *ngIf="loading"></mat-spinner>
+  
+    <ul style="padding-left: 1.3em;" *ngIf="!loading && projects.length > 0">
+      <li *ngFor="let project of projects">
+  
+        <div style="display: grid;grid-template-columns: 12% 5%;">
+          <div style="word-break: break-all;">
+            <a routerLink="/project/{{project.id}}">
+              <span style="font-size: medium;">{{project.name}}</span>
+            </a>
+          </div>
+  
+          <!-- <div><button mat-raised-button color="warn" (click)="deleteProject(project)">Delete</button></div>         -->
+  
+        </div>
+  
+        <br />
+  
+      </li>
+    </ul>
+  
+    <button *ngIf="user != null && user.role.includes('client')" (click)="goToAddProjectPage()" style="cursor: pointer;" title="Add Project"><i class="material-icons">add</i></button>
+  </div>

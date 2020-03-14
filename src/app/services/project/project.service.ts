@@ -14,6 +14,10 @@ export class ProjectService {
     return this.http.get(this.apiUrl + '/api/getProjects');
   }
 
+  getSpecificProjects(): Observable<any> {
+    return this.http.get(this.apiUrl + '/api/getSpecificProjects');
+  }
+
   getProjectById(id: number): Observable<any> {
     return this.http.get(this.apiUrl + '/api/getProjectById?projectId=' + id);
   }

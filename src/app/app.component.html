@@ -22,6 +22,7 @@
       <span *ngIf="!tokenExisted()"><a class="nav-link" routerLink="signup">Signup</a></span>
       <span *ngIf="!tokenExisted()"><a class="nav-link" routerLink="login">Login</a></span>
       <span *ngIf="tokenExisted()"><a routerLink="/projects" class="nav-link">My Projects</a></span>
+      <span *ngIf="tokenExisted()"><a routerLink="/find-projects" class="nav-link">Find Projects</a></span>
       <span *ngIf="tokenExisted()"><button (click)="logout()" style="background: transparent;border: transparent;cursor: pointer;" class="nav-link">Logout</button></span>
     </mat-toolbar-row>
   </mat-toolbar>
