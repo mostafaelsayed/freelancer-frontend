@@ -6,22 +6,29 @@
 
   <br />
 
-  <div>
-    <label for="name" style="font-weight: bold;">name: </label>
-  </div>
-  <div>
-    <input id="name" [(ngModel)]="project.name" placeholder="project name" />
+  <div *ngIf="user.role == 'client'">
+    <div>
+      <label for="name" style="font-weight: bold;">name: </label>
+    </div>
+    <div>
+      <input id="name" [(ngModel)]="project.name" placeholder="project name" />
+    </div>
+
+    <br /><br />
+
+    <div>
+      <label for="description" style="font-weight: bold;">description: </label>
+    </div>
+    <div>
+      <textarea rows="10" cols="50" id="description" [(ngModel)]="project.description" placeholder="description"></textarea>
+    </div>
+
+    <button (click)="editProject()" mat-raised-button color="primary">Update Project</button>
+
   </div>
 
-  <br /><br />
-
-  <div>
-    <label for="description" style="font-weight: bold;">description: </label>
+  <div *ngIf="user.role == 'freelancer'">
+    <div style="font-weight: bold;">Description: </div>
+    <div style="white-space: pre-line;">{{ project.description }}</div>
   </div>
-  <div>
-    <textarea rows="10" cols="50" id="description" [(ngModel)]="project.description" placeholder="description"></textarea>
-  </div>
-
-  <button (click)="editProject()" mat-raised-button color="primary">Update Project</button>
-
 </div>

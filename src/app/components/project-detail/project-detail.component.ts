@@ -14,7 +14,7 @@ export class ProjectDetailComponent implements OnInit {
   @Input() public project: Project;
 
   public loading: boolean = true;
-
+  public user = JSON.parse(localStorage.getItem('user'));
   public getProject(): void {
     // The route.snapshot is a static image of the route information shortly after the component was created.
     // The paramMap is a dictionary of route parameter values extracted from the URL.
