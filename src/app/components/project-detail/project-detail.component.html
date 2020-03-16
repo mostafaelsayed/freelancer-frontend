@@ -23,6 +23,17 @@
       <textarea rows="10" cols="50" id="description" [(ngModel)]="project.description" placeholder="description"></textarea>
     </div>
 
+    <br /><br />
+
+    <div>
+      <label for="technologies" style="font-weight: bold;">technologies: </label>
+    </div>
+    <div>
+      <select id="technologies" placeholder="technologies" multiple (change)="changeTechnologies($event)">
+        <option *ngFor="let option of technologies" [selected]="project.technology != null && project.technology.includes(option.name)" value={{option.name}} required>{{option.name}}</option>
+      </select>
+    </div>
+
     <button (click)="editProject()" mat-raised-button color="primary">Update Project</button>
 
   </div>

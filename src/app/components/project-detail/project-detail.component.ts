@@ -15,6 +15,7 @@ export class ProjectDetailComponent implements OnInit {
 
   public loading: boolean = true;
   public user = JSON.parse(localStorage.getItem('user'));
+  public technologies = [];
   public getProject(): void {
     // The route.snapshot is a static image of the route information shortly after the component was created.
     // The paramMap is a dictionary of route parameter values extracted from the URL.
@@ -30,6 +31,19 @@ export class ProjectDetailComponent implements OnInit {
     });
   }
 
+  public changeTechnologies(e) {
+    console.log('changeTechnologies event : ', e);
+    //console.log('changeTechnologies selected : ', Array.from(e.target.selectedOptions).map((e: any) => {return e.value;}));
+    this.project.technologies = Array.from(e.target.selectedOptions).map((e: any) => {return e.value;});
+  }
+
+  public getTechnologies() {
+    this.projectService.getTechnologies().subscribe(res => {
+      console.log('result get technologies : ', res);
+      this.technologies = res.technologies;
+    });
+  }
+
   public editProject() {
     this.projectService.editProject(this.project).subscribe(project => {
       
@@ -42,6 +56,7 @@ export class ProjectDetailComponent implements OnInit {
 
   ngOnInit() {
     this.getProject();
+    this.getTechnologies();
   }
 
 }

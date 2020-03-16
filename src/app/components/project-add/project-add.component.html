@@ -12,5 +12,11 @@
         <textarea rows="10" cols="50" id="projectDescription" type="text" [(ngModel)]="projectDescription" name="projectName"></textarea>
     </div>
 
+    <div>
+        <select id="technologies" placeholder="technologies" multiple (change)="changeTechnologies($event)">
+          <option *ngFor="let option of technologies" value={{option.name}} required>{{option.name}}</option>
+        </select>
+    </div>
+
     <button type="button" (click)="addProject()">Save</button>
 </form>
