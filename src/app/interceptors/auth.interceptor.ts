@@ -12,6 +12,7 @@ export class AuthInterceptor implements HttpInterceptor {
 
     intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
         console.log(localStorage.getItem('token'));
+        console.log(req.url);
         
         if (localStorage.getItem('token')) {
             console.log('token in local storage : ', localStorage.getItem('token'));
@@ -22,8 +23,9 @@ export class AuthInterceptor implements HttpInterceptor {
                 }
             });
         }
-        else {
+        else if (!req.url.includes('api/signup') && !req.url.includes('api/login')) {
             localStorage.removeItem('token');
+            console.log('interceptor login redirect');
             this.router.navigate(['/login']);
         }
 

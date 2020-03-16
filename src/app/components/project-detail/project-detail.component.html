@@ -30,7 +30,7 @@
     </div>
     <div>
       <select id="technologies" placeholder="technologies" multiple (change)="changeTechnologies($event)">
-        <option *ngFor="let option of technologies" [selected]="project.technology != null && project.technology.includes(option.name)" value={{option.name}} required>{{option.name}}</option>
+        <option *ngFor="let option of technologies" [selected]="project.technologies != null && project.technologies.includes(option.name)" value={{option.name}} required>{{option.name}}</option>
       </select>
     </div>
 

@@ -25,7 +25,7 @@ export class ProjectDetailComponent implements OnInit {
     this.projectService.getProjectById(id).subscribe(project => {
       this.loading = false;
       setTimeout(() => {
-        this.project = project
+        this.project = project;
       }, 100);  
       
     });

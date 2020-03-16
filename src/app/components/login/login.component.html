@@ -11,7 +11,7 @@
     <!-- <mat-form-field class="full-width-input" *ngIf="multiRole"> -->
       <div style="font-weight: bold;"><label id="example-radio-group-label">Choose the role to login with</label></div>
       <div>
-        <mat-radio-group name="radio-group" [(ngModel)]="choosenRole" (change)="changeRole($event)" aria-labelledby="example-radio-group-label" class="example-radio-group">
+        <mat-radio-group name="radio-group" (change)="changeRole($event)" aria-labelledby="example-radio-group-label" class="example-radio-group">
           <mat-radio-button matInput *ngFor="let role of roles" [value]="role">
             {{role}}
           </mat-radio-button>

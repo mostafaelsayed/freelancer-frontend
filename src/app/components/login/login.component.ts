@@ -28,8 +28,6 @@ export class LoginComponent implements OnInit {
 
   public roles = ['freelancer', 'client'];
 
-  public choosenRole: string = '';
-
   public login(): void {
     this.overlayService.addOverlayComponent();
     this.http.post<any>(`${this.apiUrl}/api/login`, this.user).subscribe((res) => {
@@ -44,7 +42,7 @@ export class LoginComponent implements OnInit {
       localStorage.setItem('user', JSON.stringify(res.user));
 
       // if we need to specify role
-      if (res.message == 'specify role') {
+      if (res.message == 'specify roles') {
         // pop up message to let user choose
         this.multiRole = true;
         this.loginDisabled = true;
@@ -52,7 +50,7 @@ export class LoginComponent implements OnInit {
       
       // if not then login is done.
       else {
-        this.location.back();
+        this.router.navigate(['/projects']);
       }
 
       this.overlayService.removeOverlayComponent();
@@ -66,7 +64,7 @@ export class LoginComponent implements OnInit {
     // change role in backend locals object of response
     this.userService.specifyRoleWhenLogin(e.value).subscribe( res => {
       if (res.message == 'done choose role') {
-        console.log('done chossing role!');
+        console.log('done choosing role!');
         localStorage.setItem( 'user', JSON.stringify(this.localStorageUser) );
         localStorage.setItem('token', res.token);
         this.router.navigate(['/projects']);
