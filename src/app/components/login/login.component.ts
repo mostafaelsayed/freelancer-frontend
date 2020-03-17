@@ -50,7 +50,12 @@ export class LoginComponent implements OnInit {
       
       // if not then login is done.
       else {
-        this.router.navigate(['/projects']);
+        if (this.localStorageUser.role == 'client') {
+          this.router.navigate(['/projects']);
+        }
+        else if (this.localStorageUser.role == 'freelancer') {
+          this.router.navigate(['/assigned-projects']);
+        }
       }
 
       this.overlayService.removeOverlayComponent();
@@ -67,7 +72,12 @@ export class LoginComponent implements OnInit {
         console.log('done choosing role!');
         localStorage.setItem( 'user', JSON.stringify(this.localStorageUser) );
         localStorage.setItem('token', res.token);
-        this.router.navigate(['/projects']);
+        if (this.localStorageUser.role == 'client') {
+          this.router.navigate(['/projects']);
+        }
+        else if (this.localStorageUser.role == 'freelancer') {
+          this.router.navigate(['/assigned-projects']);
+        }
       }
       // if error then reset everything
       else {
