@@ -15,6 +15,7 @@ import { httpInterceptorsProvider } from './interceptors/index';
 import { MatIconModule } from '@angular/material/icon';
 import { ProjectAddComponent } from './components/project-add/project-add.component';
 import { FindProjectsComponent } from './components/find-projects/find-projects.component';
+import { AssignedProjectsComponent } from './components/assigned-projects/assigned-projects.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { FindProjectsComponent } from './components/find-projects/find-projects.
     ProjectDetailComponent,
     SignupComponent,
     ProjectAddComponent,
-    FindProjectsComponent
+    FindProjectsComponent,
+    AssignedProjectsComponent
   ],
   imports: [
     BrowserModule,

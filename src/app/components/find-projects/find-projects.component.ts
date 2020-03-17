@@ -11,6 +11,8 @@ export class FindProjectsComponent implements OnInit {
 
   public projects: Project[] = [];
 
+  public assignedProjects = [];
+
   public loading: boolean = true;
 
   public findProjects() {
@@ -23,11 +25,46 @@ export class FindProjectsComponent implements OnInit {
     })
   }
 
+  public inAssignedProjects(projectId) {
+    return this.assignedProjects.findIndex((e) => {
+      return e.project_id == projectId;
+    }) !== -1;
+  }
+
+  public getAssignedProjects() {
+    this.projectService.getAssignedProjects().subscribe(res => {
+      this.assignedProjects = res.assignedProjects;
+      console.log(res);
+    });
+  }
+
+  public assignProject(project) {
+    this.projectService.assignProject(project).subscribe(res => {
+      console.log('response assign project : ', res);
+      this.assignedProjects.push({
+        project_id: project.id,
+        user_id: project.user_id,
+      })
+    })
+  }
+
+  public unAssignProject(project) {
+    this.projectService.unAssignProject(project).subscribe(res => {
+      console.log('response unAssign project : ', res);
+
+      let projectIndex = this.assignedProjects.findIndex((e) => {
+        return e.project_id == project.id;
+      });
+
+      this.assignedProjects.splice(projectIndex, 1);
+    })
+  }
+
   constructor(private projectService: ProjectService) { }
 
   ngOnInit() {
-    //console.log(' projects : ', this.projects);
     this.findProjects();
+    this.getAssignedProjects();
   }
 
 }

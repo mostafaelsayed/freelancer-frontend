@@ -6,6 +6,7 @@ import { ProjectDetailComponent } from './components/project-detail/project-deta
 import { SignupComponent } from './components/signup/signup.component';
 import { ProjectAddComponent } from './components/project-add/project-add.component';
 import { FindProjectsComponent } from './components/find-projects/find-projects.component';
+import { AssignedProjectsComponent } from './components/assigned-projects/assigned-projects.component';
 
 const routes: Routes = [
   {path: 'login', component: LoginComponent},
@@ -14,6 +15,7 @@ const routes: Routes = [
   {path: 'project/:id', component: ProjectDetailComponent},
   {path: 'projects', component: ProjectsComponent},
   {path: 'find-projects', component: FindProjectsComponent},
+  {path: 'assigned-projects', component: AssignedProjectsComponent},
   
 ];
 

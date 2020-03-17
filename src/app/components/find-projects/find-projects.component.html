@@ -1,6 +1,4 @@
 <div style="margin-left: 1.5em;">
-
-    <!-- <h2>My Projects</h2> -->
   
     <br />
   
@@ -16,8 +14,9 @@
             </a>
           </div>
   
-          <!-- <div><button mat-raised-button color="warn" (click)="deleteProject(project)">Delete</button></div>         -->
-  
+          <div *ngIf="!inAssignedProjects(project.id)"><button mat-raised-button color="primary" (click)="assignProject(project)">Assign</button></div>
+          <div *ngIf="inAssignedProjects(project.id)"><button mat-raised-button color="warn" (click)="unAssignProject(project)">UnAssign</button></div>
+        
         </div>
   
         <br />
@@ -26,4 +25,4 @@
     </ul>
   
     <button *ngIf="user != null && user.role.includes('client')" (click)="goToAddProjectPage()" style="cursor: pointer;" title="Add Project"><i class="material-icons">add</i></button>
-  </div>
+</div>
