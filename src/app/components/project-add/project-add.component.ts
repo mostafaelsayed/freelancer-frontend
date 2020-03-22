@@ -25,9 +25,9 @@ export class ProjectAddComponent implements OnInit {
     period: []
   };
 
-  protected periodYears = Array.from(Array(21).keys()).slice(1);
-  protected periodMonths = Array.from(Array(12).keys()).slice(1);
-  protected periodDays = Array.from(Array(30).keys()).slice(1);
+  protected periodYears = Array.from(Array(21).keys());
+  protected periodMonths = Array.from(Array(12).keys());
+  protected periodDays = Array.from(Array(30).keys());
 
   public getTechnologies() {
     this.projectService.getTechnologies().subscribe(res => {

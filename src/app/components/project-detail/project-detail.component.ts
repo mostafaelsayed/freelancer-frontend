@@ -13,9 +13,9 @@ export class ProjectDetailComponent implements OnInit {
   // The project property must be an Input property, annotated with the @Input() decorator to be able to bind to it
   @Input() public project: Project;
 
-  protected periodYears = Array.from(Array(21).keys()).slice(1);
-  protected periodMonths = Array.from(Array(12).keys()).slice(1);
-  protected periodDays = Array.from(Array(30).keys()).slice(1);
+  protected periodYears = Array.from(Array(21).keys());
+  protected periodMonths = Array.from(Array(12).keys());
+  protected periodDays = Array.from(Array(30).keys());
 
   public loading: boolean = true;
   public user = JSON.parse(localStorage.getItem('user'));
