@@ -38,7 +38,7 @@
         <label for="period-years" style="font-weight: bold;">Period Years</label>
         <div>
           <select id="period-years" placeholder="period-years" (change)="changePeriodYears($event)">
-            <option *ngFor="let option of periodYears" [selected]="option == project.period[0]" value={{option}} required>{{option}}</option>
+            <option *ngFor="let option of periodYears" [selected]="project.period != null && option == project.period[0]" value={{option}} required>{{option}}</option>
           </select>
         </div>
       </div>
@@ -47,7 +47,7 @@
         <label for="period-months" style="font-weight: bold;">Period Months</label>
         <div>
           <select id="period-months" placeholder="period-months" (change)="changePeriodMonths($event)">
-            <option *ngFor="let option of periodMonths" [selected]="option == project.period[1]" value={{option}} required>{{option}}</option>
+            <option *ngFor="let option of periodMonths" [selected]="project.period != null && option == project.period[1]" value={{option}} required>{{option}}</option>
           </select>
         </div>
       </div>
@@ -56,7 +56,7 @@
         <label for="period-days" style="font-weight: bold;">Period Days</label>
         <div>
           <select id="period-days" placeholder="period-days" (change)="changePeriodDays($event)">
-            <option *ngFor="let option of periodDays" [selected]="option == project.period[2]" value={{option}} required>{{option}}</option>
+            <option *ngFor="let option of periodDays" [selected]="project.period != null && option == project.period[2]" value={{option}} required>{{option}}</option>
           </select>
         </div>
       </div>
