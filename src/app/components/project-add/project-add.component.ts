@@ -13,13 +13,21 @@ export class ProjectAddComponent implements OnInit {
 
   ngOnInit() {
     this.getTechnologies();
+    console.log(this.periodYears);
   }
 
-  protected projectName: string = '';
-  protected projectDescription: string = '';
-  protected projectId: number = null;
-  public technologies = [];
-  public selectedTechnologies = [];
+  protected technologies = [];
+  protected projectToAdd: Project = {
+    name: '',
+    description: '',
+    id: null,
+    technologies: [],
+    period: []
+  };
+
+  protected periodYears = Array.from(Array(21).keys()).slice(1);
+  protected periodMonths = Array.from(Array(12).keys()).slice(1);
+  protected periodDays = Array.from(Array(30).keys()).slice(1);
 
   public getTechnologies() {
     this.projectService.getTechnologies().subscribe(res => {
@@ -31,12 +39,30 @@ export class ProjectAddComponent implements OnInit {
   public changeTechnologies(e) {
     console.log('changeTechnologies event : ', e);
     //console.log('changeTechnologies selected : ', Array.from(e.target.selectedOptions).map((e: any) => {return e.value;}));
-    this.selectedTechnologies = Array.from(e.target.selectedOptions).map((e: any) => {return e.value;});
+    this.projectToAdd.technologies = Array.from(e.target.selectedOptions).map((e: any) => {return e.value;});
+  }
+
+  public changePeriodYears(e) {
+    console.log('changePeriodYears event : ', e);
+    //console.log('changeTechnologies selected : ', Array.from(e.target.selectedOptions).map((e: any) => {return e.value;}));
+    this.projectToAdd.period[0] = e.target.value;
+  }
+
+  public changePeriodMonths(e) {
+    console.log('changePeriodMonths event : ', e);
+    //console.log('changeTechnologies selected : ', Array.from(e.target.selectedOptions).map((e: any) => {return e.value;}));
+    this.projectToAdd.period[1] = e.target.value;
+  }
+
+  public changePeriodDays(e) {
+    console.log('changePeriodDays event : ', e);
+    //console.log('changeTechnologies selected : ', Array.from(e.target.selectedOptions).map((e: any) => {return e.value;}));
+    this.projectToAdd.period[2] = e.target.value;
   }
 
   protected addProject() {
-    const projectToAdd = new Project(this.projectName, this.projectDescription, this.projectId, this.selectedTechnologies);
-    this.projectService.addProject(projectToAdd).subscribe((success) => {
+    //const projectToAdd = new Project(this.projectName, this.projectDescription, this.projectId, this.selectedTechnologies, [this.selectedYearsNumber, this.selectedMonthsNumber, this.selectedDaysNumber]);
+    this.projectService.addProject(this.projectToAdd).subscribe((success) => {
       console.log('success add project : ', success);
     });
   }

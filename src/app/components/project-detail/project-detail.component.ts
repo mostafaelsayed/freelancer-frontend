@@ -13,6 +13,10 @@ export class ProjectDetailComponent implements OnInit {
   // The project property must be an Input property, annotated with the @Input() decorator to be able to bind to it
   @Input() public project: Project;
 
+  protected periodYears = Array.from(Array(21).keys()).slice(1);
+  protected periodMonths = Array.from(Array(12).keys()).slice(1);
+  protected periodDays = Array.from(Array(30).keys()).slice(1);
+
   public loading: boolean = true;
   public user = JSON.parse(localStorage.getItem('user'));
   public technologies = [];
@@ -24,6 +28,7 @@ export class ProjectDetailComponent implements OnInit {
     const id = +this.route.snapshot.paramMap.get('id');
     this.projectService.getProjectById(id).subscribe(project => {
       this.loading = false;
+      console.log(project);
       setTimeout(() => {
         this.project = project;
       }, 100);  
@@ -37,6 +42,24 @@ export class ProjectDetailComponent implements OnInit {
     this.project.technologies = Array.from(e.target.selectedOptions).map((e: any) => {return e.value;});
   }
 
+  public changePeriodYears(e) {
+    console.log('changePeriodYears event : ', e);
+    //console.log('changeTechnologies selected : ', Array.from(e.target.selectedOptions).map((e: any) => {return e.value;}));
+    this.project.period[0] = e.target.value;
+  }
+
+  public changePeriodMonths(e) {
+    console.log('changePeriodMonths event : ', e);
+    //console.log('changeTechnologies selected : ', Array.from(e.target.selectedOptions).map((e: any) => {return e.value;}));
+    this.project.period[1] = e.target.value;
+  }
+
+  public changePeriodDays(e) {
+    console.log('changePeriodDays event : ', e);
+    //console.log('changeTechnologies selected : ', Array.from(e.target.selectedOptions).map((e: any) => {return e.value;}));
+    this.project.period[2] = e.target.value;
+  }
+
   public getTechnologies() {
     this.projectService.getTechnologies().subscribe(res => {
       console.log('result get technologies : ', res);
@@ -46,7 +69,7 @@ export class ProjectDetailComponent implements OnInit {
 
   public editProject() {
     this.projectService.editProject(this.project).subscribe(project => {
-      
+      console.log('success edit project response : ', project);
     });
   }
 

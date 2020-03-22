@@ -1,22 +1,57 @@
 <form style="margin-left: 1.5em;">
     <label for="name" style="font-weight: bold;">Project Name</label>
     <div>
-        <input id="name" type="text" [(ngModel)]="projectName" name="projectName" />
+        <input id="name" type="text" [(ngModel)]="projectToAdd.name" name="projectName" />
     </div>
 
     <br /><br />
 
     <label for="projectDescription" style="font-weight: bold;">Project Description</label>
-
     <div>
-        <textarea rows="10" cols="50" id="projectDescription" type="text" [(ngModel)]="projectDescription" name="projectName"></textarea>
+        <textarea rows="10" cols="50" id="projectDescription" type="text" [(ngModel)]="projectToAdd.description" name="projectName"></textarea>
     </div>
 
+    <br /><br />
+
+    <label for="technologies" style="font-weight: bold;">Technologies</label>
     <div>
         <select id="technologies" placeholder="technologies" multiple (change)="changeTechnologies($event)">
           <option *ngFor="let option of technologies" value={{option.name}} required>{{option.name}}</option>
         </select>
     </div>
 
-    <button type="button" (click)="addProject()">Save</button>
+    <br /><br />
+
+    <div style="display: flex;justify-content: space-between;width: 30%;">
+        <div>
+            <label for="period-years" style="font-weight: bold;">Period Years</label>
+            <div>
+                <select id="period-years" placeholder="period-years" (change)="changePeriodYears($event)">
+                    <option *ngFor="let option of periodYears" value={{option}} required>{{option}}</option>
+                </select>
+            </div>
+        </div>
+
+        <div>
+            <label for="period-months" style="font-weight: bold;">Period Months</label>
+            <div>
+                <select id="period-months" placeholder="period-months" (change)="changePeriodMonths($event)">
+                    <option *ngFor="let option of periodMonths" value={{option}} required>{{option}}</option>
+                </select>
+            </div>
+        </div>
+
+        <div>
+            <label for="period-days" style="font-weight: bold;">Period Days</label>
+            <div>
+                <select id="period-days" placeholder="period-days" (change)="changePeriodDays($event)">
+                    <option *ngFor="let option of periodDays" value={{option}} required>{{option}}</option>
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <br /><br />
+
+    <button mat-raised-button color="primary" (click)="addProject()">Save</button>
 </form>

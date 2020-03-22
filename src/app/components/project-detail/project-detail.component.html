@@ -7,32 +7,62 @@
   <br />
 
   <div *ngIf="user.role == 'client'">
-    <div>
-      <label for="name" style="font-weight: bold;">name: </label>
-    </div>
+    <label for="name" style="font-weight: bold;">name: </label>
+    
     <div>
       <input id="name" [(ngModel)]="project.name" placeholder="project name" />
     </div>
 
     <br /><br />
 
-    <div>
-      <label for="description" style="font-weight: bold;">description: </label>
-    </div>
+    <label for="description" style="font-weight: bold;">description: </label>
+
     <div>
       <textarea rows="10" cols="50" id="description" [(ngModel)]="project.description" placeholder="description"></textarea>
     </div>
 
     <br /><br />
-
-    <div>
-      <label for="technologies" style="font-weight: bold;">technologies: </label>
-    </div>
+    
+    <label for="technologies" style="font-weight: bold;">technologies: </label>
+    
     <div>
       <select id="technologies" placeholder="technologies" multiple (change)="changeTechnologies($event)">
         <option *ngFor="let option of technologies" [selected]="project.technologies != null && project.technologies.includes(option.name)" value={{option.name}} required>{{option.name}}</option>
       </select>
     </div>
+
+    <br /><br />
+
+    <div style="display: flex;justify-content: space-between;width: 30%">
+      <div>
+        <label for="period-years" style="font-weight: bold;">Period Years</label>
+        <div>
+          <select id="period-years" placeholder="period-years" (change)="changePeriodYears($event)">
+            <option *ngFor="let option of periodYears" [selected]="option == project.period[0]" value={{option}} required>{{option}}</option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <label for="period-months" style="font-weight: bold;">Period Months</label>
+        <div>
+          <select id="period-months" placeholder="period-months" (change)="changePeriodMonths($event)">
+            <option *ngFor="let option of periodMonths" [selected]="option == project.period[1]" value={{option}} required>{{option}}</option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <label for="period-days" style="font-weight: bold;">Period Days</label>
+        <div>
+          <select id="period-days" placeholder="period-days" (change)="changePeriodDays($event)">
+            <option *ngFor="let option of periodDays" [selected]="option == project.period[2]" value={{option}} required>{{option}}</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <br /><br />
 
     <button (click)="editProject()" mat-raised-button color="primary">Update Project</button>
 
