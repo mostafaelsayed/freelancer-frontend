@@ -31,6 +31,9 @@ export class ProjectDetailComponent implements OnInit {
       console.log(project);
       setTimeout(() => {
         this.project = project;
+        if (project.period == null) {
+          this.project.period = ['0', '0', '0'];
+        }
       }, 100);  
       
     });
