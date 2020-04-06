@@ -22,7 +22,7 @@ export class ProjectAddComponent implements OnInit {
     description: '',
     id: null,
     technologies: [],
-    period: []
+    period: ['0', '0', '0']
   };
 
   protected periodYears = Array.from(Array(21).keys());

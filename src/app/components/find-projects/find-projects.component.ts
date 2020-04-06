@@ -27,7 +27,7 @@ export class FindProjectsComponent implements OnInit {
 
   public inAssignedProjects(projectId) {
     return this.assignedProjects.findIndex((e) => {
-      return e.project_id == projectId;
+      return e.projectId == projectId;
     }) !== -1;
   }
 
@@ -42,8 +42,8 @@ export class FindProjectsComponent implements OnInit {
     this.projectService.assignProject(project).subscribe(res => {
       console.log('response assign project : ', res);
       this.assignedProjects.push({
-        project_id: project.id,
-        user_id: project.user_id,
+        projectId: project.id,
+        userId: project.userId,
       })
     })
   }
@@ -53,7 +53,7 @@ export class FindProjectsComponent implements OnInit {
       console.log('response unAssign project : ', res);
 
       let projectIndex = this.assignedProjects.findIndex((e) => {
-        return e.project_id == project.id;
+        return e.projectId == project.id;
       });
 
       this.assignedProjects.splice(projectIndex, 1);
