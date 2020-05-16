@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Project } from '../../models/project';
 import { ProjectService } from '../../services/project/project.service';
+import { TechnologyService } from '../../services/technology/technology.service';
 
 @Component({
   selector: 'app-project-add',
@@ -9,7 +10,7 @@ import { ProjectService } from '../../services/project/project.service';
 })
 export class ProjectAddComponent implements OnInit {
 
-  constructor(private projectService: ProjectService) { }
+  constructor(private projectService: ProjectService, private technologyService: TechnologyService) { }
 
   ngOnInit() {
     this.getTechnologies();
@@ -30,7 +31,7 @@ export class ProjectAddComponent implements OnInit {
   protected periodDays = Array.from(Array(30).keys());
 
   public getTechnologies() {
-    this.projectService.getTechnologies().subscribe(res => {
+    this.technologyService.getTechnologies().subscribe(res => {
       console.log('result get technologies : ', res);
       this.technologies = res.technologies;
     });

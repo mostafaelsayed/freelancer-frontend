@@ -56,6 +56,9 @@ export class LoginComponent implements OnInit {
         else if (this.localStorageUser.role == 'freelancer') {
           this.router.navigate(['/assigned-projects']);
         }
+        else if (this.localStorageUser.role == 'admin') {
+          this.router.navigate(['/technologies']);
+        }
       }
 
       this.overlayService.removeOverlayComponent();
@@ -77,6 +80,9 @@ export class LoginComponent implements OnInit {
         }
         else if (this.localStorageUser.role == 'freelancer') {
           this.router.navigate(['/assigned-projects']);
+        }
+        else if (this.localStorageUser.role == 'admin') {
+
         }
       }
       // if error then reset everything

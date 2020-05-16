@@ -1,0 +1,18 @@
+<!-- selected technology -->
+<mat-spinner *ngIf="loading"></mat-spinner>
+
+<div *ngIf="technology" style="margin-left: 1.5em;">
+    <h2>{{technology.name | uppercase}} Details</h2>
+
+    <br />
+
+    <label for="name" style="font-weight: bold;">name: </label>
+    
+    <div>
+        <input id="technologyName" [(ngModel)]="technology.name" placeholder="technology name" />
+    </div>
+
+    <br />
+
+    <button (click)="editTechnology()" mat-raised-button color="primary">Update Technology</button>
+</div>

@@ -10,10 +10,6 @@ export class ProjectService {
 
   private apiUrl = environment.apiUrl;
 
-  getTechnologies(): Observable<any> {
-    return this.http.get(this.apiUrl + '/api/getTechnologies');
-  }
-
   getProjects(): Observable<any> {
     return this.http.get(this.apiUrl + '/api/getProjects');
   }

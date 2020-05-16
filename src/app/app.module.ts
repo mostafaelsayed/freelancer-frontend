@@ -16,6 +16,9 @@ import { MatIconModule } from '@angular/material/icon';
 import { ProjectAddComponent } from './components/project-add/project-add.component';
 import { FindProjectsComponent } from './components/find-projects/find-projects.component';
 import { AssignedProjectsComponent } from './components/assigned-projects/assigned-projects.component';
+import { TechnologiesComponent } from './components/technologies/technologies.component';
+import { TechnologyAddComponent } from './components/technology-add/technology-add.component';
+import { TechnologyDetailComponent } from './components/technology-detail/technology-detail.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +30,10 @@ import { AssignedProjectsComponent } from './components/assigned-projects/assign
     SignupComponent,
     ProjectAddComponent,
     FindProjectsComponent,
-    AssignedProjectsComponent
+    AssignedProjectsComponent,
+    TechnologiesComponent,
+    TechnologyAddComponent,
+    TechnologyDetailComponent
   ],
   imports: [
     BrowserModule,

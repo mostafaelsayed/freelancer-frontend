@@ -19,6 +19,10 @@ export class AppComponent {
     return JSON.parse(localStorage.getItem('user')).role == 'freelancer';
   }
 
+  public userIsAdmin() {
+    return JSON.parse(localStorage.getItem('user')).role == 'admin';
+  }
+
   public logout() {
     localStorage.removeItem('token');
     localStorage.removeItem('user');

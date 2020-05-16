@@ -1,0 +1,36 @@
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+rel="stylesheet">
+
+
+
+<div style="margin-left: 1.5em;">
+
+  <h2>Technologies</h2>
+
+  <br />
+
+  <mat-spinner *ngIf="loading"></mat-spinner>
+
+  <ul style="padding-left: 1.3em;" *ngIf="!loading && technologies.length > 0">
+      <li *ngFor="let technology of technologies">
+
+        <div style="display: grid;grid-template-columns: 12% 5%;">
+
+          <div style="word-break: break-all;">
+            <a routerLink="/technology/{{technology.id}}">
+              <span style="font-size: medium;">{{ technology.name }}</span>
+            </a>
+          </div>
+
+          <div><button mat-raised-button color="warn" (click)="deleteTechnology(technology)">Delete</button></div>        
+
+        </div>
+
+        <br />
+
+      </li>
+  </ul>
+
+  <button (click)="goToAddTechnologyPage()" style="cursor: pointer;" title="Add Technology"><i class="material-icons">add</i></button>
+
+</div>

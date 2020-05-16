@@ -1,0 +1,17 @@
+<form style="margin-left: 1.5em;">
+    <label for="name" style="font-weight: bold;">Technology Name</label>
+    <div>
+        <input id="name" type="text" [(ngModel)]="technologyToAdd.name" name="projectName" />
+    </div>
+
+    <br /><br />
+
+    <!-- <label for="technologyDescription" style="font-weight: bold;">Technology Description</label>
+    <div>
+        <textarea rows="10" cols="50" id="technologyDescription" type="text" [(ngModel)]="technologyToAdd.description" name="technologyName"></textarea>
+    </div>
+
+    <br /><br /> -->
+
+    <button mat-raised-button color="primary" (click)="addTechnology()">Save</button>
+</form>
