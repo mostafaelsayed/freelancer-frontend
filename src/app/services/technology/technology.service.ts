@@ -27,5 +27,9 @@ export class TechnologyService {
     return this.http.put(this.apiUrl + '/api/editTechnology', technology);
   }
 
+  deleteTechnology(id: number) {
+    return this.http.delete(this.apiUrl + '/api/deleteTechnology/' + id);
+  }
+
   constructor(private http: HttpClient) { }
 }
