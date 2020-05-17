@@ -10,9 +10,7 @@
       <span *ngIf="userIsClient()"><a routerLink="/projects" class="nav-link">My Projects</a></span>
       <span *ngIf="userIsFreelancer()"><a routerLink="/find-projects" class="nav-link">Find Projects</a></span>
       <span *ngIf="userIsFreelancer()"><a routerLink="/assigned-projects" class="nav-link">Assigned Projects</a></span>
-      <span *ngIf="userIsAdmin()">
-        <a routerLink="/technologies" class="nav-link">Manage Technologies</a>
-      </span>
+      <span *ngIf="userIsAdmin()"><a routerLink="/technologies" class="nav-link">Technologies</a></span>
       <span *ngIf="tokenExisted()"><button (click)="logout()" style="background: transparent;border: transparent;cursor: pointer;" class="nav-link">Logout</button></span>
     </mat-toolbar-row>
   </mat-toolbar>
