@@ -11,20 +11,20 @@ export class AppComponent {
 
   constructor(private router: Router) {}
 
-  public tokenExisted() {
+  public tokenExisted(): boolean {
     return localStorage.getItem('token') !== null;
   }
 
-  public userIsFreelancer() {
-    return JSON.parse(localStorage.getItem('user')).role == 'freelancer';
+  public userIsFreelancer(): boolean {
+    return this.tokenExisted() && JSON.parse(localStorage.getItem('user')).role == 'freelancer';
   }
 
-  public userIsAdmin() {
-    return JSON.parse(localStorage.getItem('user')).role == 'admin';
+  public userIsAdmin(): boolean {
+    return this.tokenExisted() && JSON.parse(localStorage.getItem('user')).role == 'admin';
   }
 
-  public userIsClient() {
-    return JSON.parse(localStorage.getItem('user')).role == 'client';
+  public userIsClient(): boolean {
+    return this.tokenExisted() && JSON.parse(localStorage.getItem('user')).role == 'client';
   }
 
   public logout() {
