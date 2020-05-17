@@ -64,6 +64,15 @@
 
     <br /><br />
 
+    <label for="priceModel" style="font-weight: bold;">Price Model</label>
+    <div>
+        <select id="priceModel" placeholder="Price Model" (change)="changePriceModel($event)">
+          <option *ngFor="let option of priceModels" [selected]="project.priceModel == option.name" value={{option.name}} required>{{option.name}}</option>
+        </select>
+    </div>
+
+    <br /><br />
+
     <button (click)="editProject()" mat-raised-button color="primary">Update Project</button>
 
   </div>

@@ -3,6 +3,7 @@ import { Project } from '../../models/project';
 import { ActivatedRoute } from '@angular/router';
 import { ProjectService } from '../../services/project/project.service';
 import { TechnologyService } from '../../services/technology/technology.service';
+import { PriceModelService } from '../../services/price-model/price-model.service';
 
 @Component({
   selector: 'app-project-detail',
@@ -21,6 +22,7 @@ export class ProjectDetailComponent implements OnInit {
   public loading: boolean = true;
   public user = JSON.parse(localStorage.getItem('user'));
   public technologies = [];
+  public priceModels = [];
   public getProject(): void {
     // The route.snapshot is a static image of the route information shortly after the component was created.
     // The paramMap is a dictionary of route parameter values extracted from the URL.
@@ -64,10 +66,21 @@ export class ProjectDetailComponent implements OnInit {
     this.project.period[2] = e.target.value;
   }
 
+  public changePriceModel(e) {
+    this.project.priceModel = e.target.value;
+  }
+
   public getTechnologies() {
     this.technologyService.getTechnologies().subscribe(res => {
       console.log('result get technologies : ', res);
       this.technologies = res.technologies;
+    });
+  }
+
+  public getPriceModels() {
+    this.priceModelService.getPriceModels().subscribe(response => {
+      console.log('getPriceModels response : ', response);
+      this.priceModels = response.priceModels;
     });
   }
 
@@ -79,11 +92,13 @@ export class ProjectDetailComponent implements OnInit {
 
   // The ActivatedRoute holds information about the route to this instance of the ProjectDetailComponent.
   // This component is interested in the route's bag of parameters extracted from the URL
-  constructor(private route: ActivatedRoute, private projectService: ProjectService, private technologyService: TechnologyService) { }
+  constructor(private priceModelService: PriceModelService, private route: ActivatedRoute, private projectService: ProjectService,
+    private technologyService: TechnologyService) { }
 
   ngOnInit() {
     this.getProject();
     this.getTechnologies();
+    this.getPriceModels();
   }
 
 }

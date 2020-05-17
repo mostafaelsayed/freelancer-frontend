@@ -19,6 +19,9 @@ import { AssignedProjectsComponent } from './components/assigned-projects/assign
 import { TechnologiesComponent } from './components/technologies/technologies.component';
 import { TechnologyAddComponent } from './components/technology-add/technology-add.component';
 import { TechnologyDetailComponent } from './components/technology-detail/technology-detail.component';
+import { PriceModelsComponent } from './components/price-models/price-models.component';
+import { PriceModelAddComponent } from './components/price-model-add/price-model-add.component';
+import { PriceModelDetailComponent } from './components/price-model-detail/price-model-detail.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +36,10 @@ import { TechnologyDetailComponent } from './components/technology-detail/techno
     AssignedProjectsComponent,
     TechnologiesComponent,
     TechnologyAddComponent,
-    TechnologyDetailComponent
+    TechnologyDetailComponent,
+    PriceModelsComponent,
+    PriceModelAddComponent,
+    PriceModelDetailComponent
   ],
   imports: [
     BrowserModule,

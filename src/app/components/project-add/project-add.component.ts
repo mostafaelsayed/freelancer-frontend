@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Project } from '../../models/project';
 import { ProjectService } from '../../services/project/project.service';
 import { TechnologyService } from '../../services/technology/technology.service';
+import { PriceModelService } from '../../services/price-model/price-model.service';
 
 @Component({
   selector: 'app-project-add',
@@ -10,20 +11,24 @@ import { TechnologyService } from '../../services/technology/technology.service'
 })
 export class ProjectAddComponent implements OnInit {
 
-  constructor(private projectService: ProjectService, private technologyService: TechnologyService) { }
+  constructor(private priceModelService: PriceModelService, private projectService: ProjectService, private technologyService: TechnologyService) { }
 
   ngOnInit() {
     this.getTechnologies();
+    this.getPriceModels();
     console.log(this.periodYears);
   }
 
   protected technologies = [];
+  protected priceModels = [];
+  protected priceModel: String = '';
   protected projectToAdd: Project = {
     name: '',
     description: '',
     id: null,
     technologies: [],
-    period: ['0', '0', '0']
+    period: ['0', '0', '0'],
+    priceModel: ''
   };
 
   protected periodYears = Array.from(Array(21).keys());
@@ -34,6 +39,12 @@ export class ProjectAddComponent implements OnInit {
     this.technologyService.getTechnologies().subscribe(res => {
       console.log('result get technologies : ', res);
       this.technologies = res.technologies;
+    });
+  }
+
+  public getPriceModels() {
+    this.priceModelService.getPriceModels().subscribe(response => {
+      this.priceModels = response.priceModels;
     });
   }
 
@@ -59,6 +70,10 @@ export class ProjectAddComponent implements OnInit {
     console.log('changePeriodDays event : ', e);
     //console.log('changeTechnologies selected : ', Array.from(e.target.selectedOptions).map((e: any) => {return e.value;}));
     this.projectToAdd.period[2] = e.target.value;
+  }
+
+  public changePriceModel(e) {
+    this.projectToAdd.priceModel = e.target.value;
   }
 
   protected addProject() {

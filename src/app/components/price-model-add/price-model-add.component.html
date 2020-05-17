@@ -1,0 +1,10 @@
+<form style="margin-left: 1.5em;">
+    <label for="name" style="font-weight: bold;">Price Model Name</label>
+    <div>
+        <input id="name" type="text" [(ngModel)]="priceModelToAdd.name" name="priceModelName" />
+    </div>
+
+    <br /><br />
+
+    <button mat-raised-button color="primary" (click)="addPriceModel()">Save</button>
+</form>
